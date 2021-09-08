@@ -2,15 +2,19 @@ from pathlib import Path
 import glob
 import os
 import re
+from datetime import datetime
 
 def clean_destkop(regex):
-    print("Llegiue")
-    # directory = "."
     dir = "/Users/jgaspar/Desktop/desktop_cleaner/src/cleaners"
-    for f in os.listdir(dir):
-        print(f)
-        if re.search("^Screen.*\.(jpe?g|gif|png|tiff)$", f):
-            os.remove(os.path.join(dir, f))
-        else:
-            print("No match found")
+    dir2 = "/Users/jgaspar/Desktop"
+    for f in os.listdir(dir2):
+        if re.search("^Screen.*\.(png)$", f):
+            whole_path = os.path.join(dir2, f)
+            timestamp_file = datetime.fromtimestamp(os.path.getmtime(whole_path)).date()
+            present = datetime.now().date()
+            difference = present - timestamp_file
+
+            if difference.days >= 15: 
+                os.remove(os.path.join(dir2, f))
+    print("Done")
 
