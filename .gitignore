@@ -1,0 +1,2 @@
+src/cleaners/*.pyc
+src/cleaners/__pycache__/*
