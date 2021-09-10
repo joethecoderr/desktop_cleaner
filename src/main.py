@@ -5,7 +5,7 @@ import cleaners.downloads_cleaner as downloads_cleaner
 def select_folder(directory_name: str):
     if directory_name is not None:
         if directory_name == "desktop":
-            desk_cleaner.clean_destkop()
+            desk_cleaner.clean_destkop_screenshots()
         elif directory_name == "downloads":
             #downloads_cleaner.clean_downloads_images()
             downloads_cleaner.clean_downloads_documents()
